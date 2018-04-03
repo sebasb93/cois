@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //Main components
 import { ConfigurationComponent } from './configuration/configuration.component';
@@ -46,6 +47,7 @@ import { AppComponent } from './app.component';
     AuthorizeTransactionComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
