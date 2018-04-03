@@ -1,14 +1,14 @@
-import { CoisWebPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('cois-web App', function() {
-  let page: CoisWebPage;
+describe('cois-web App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new CoisWebPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
