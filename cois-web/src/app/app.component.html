@@ -1,3 +1,50 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="['']">{{title}}</a>
+  <button class="navbar-toggler" type="button" aria-controls="mainNavBar"
+    [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse" id="mainNavBar" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" [routerLink]="['/home']">Inicio
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" [routerLink]="['/login']">Login</a>
+      </li>           
+      <li ngbDropdown  class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link dropdown-toggle pointer" id="dropdown-inventary" aria-haspopup="true"
+          aria-expanded="false" ngbDropdownToggle>Inventario</a>
+        <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="dropdown-items">
+          <a class="dropdown-item" [routerLink]="['/inventary/show-item']">Items</a>
+          <a class="dropdown-item" [routerLink]="['/inventary/add-item']">Agregar Item</a>
+          <a class="dropdown-item" [routerLink]="['/inventary/edit-item']">Editar Item</a>
+        </div>
+      </li>
+      <li ngbDropdown  class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link dropdown-toggle pointer" id="dropdown-transaction" aria-haspopup="true"
+          aria-expanded="false" ngbDropdownToggle>Movimientos</a>
+        <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="dropdown-transaction">
+          <a class="dropdown-item" [routerLink]="['/transaction/show-my-transaction']">Mis movimientos</a>
+          <a class="dropdown-item" [routerLink]="['/transaction/show-transaction']">Movimientos</a>
+          <a class="dropdown-item" [routerLink]="['/transaction/add-input-transaction']">Movimiento de Ingreso</a>
+          <a class="dropdown-item" [routerLink]="['/transaction/add-output-transaction']">Movimiento de Salida</a>
+          <a class="dropdown-item" [routerLink]="['/transaction/authorize-transaction']">Autorizar Movimientos</a>
+        </div>
+      </li>
+      <li ngbDropdown  class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link dropdown-toggle pointer" id="dropdown-configuration" aria-haspopup="true"
+          aria-expanded="false" ngbDropdownToggle>Configuracion</a>
+        <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="dropdown-configuration">
+          <a class="dropdown-item" [routerLink]="['/configuration/add-user']">Agregar Usuario</a>
+          <a class="dropdown-item" [routerLink]="['/configuration/edit-user']">Eliminar Usuario</a>          
+        </div>
+      </li>
+    </ul>    
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
