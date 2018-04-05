@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 
-//Main components
+// Main components
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { HomeComponent } from './components/home/home.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { LoginComponent } from './components/login/login.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 
-//ChildComponents
+// ChildComponents
 import { AddUserComponent } from './components/configuration/add-user/add-user.component';
 import { EditUserComponent } from './components/configuration/edit-user/edit-user.component';
 import { AddItemComponent } from './components/inventory/add-item/add-item.component';
@@ -26,16 +26,14 @@ export const appRoutes: Routes = [
     { path: 'inventory', component: InventoryComponent },
     { path: 'inventory/add-item', component: AddItemComponent },
     { path: 'inventory/edit-item', component: EditItemComponent },
-    { path: 'inventory/show-item', component: ShowItemComponent },    
+    { path: 'inventory/show-item', component: ShowItemComponent },
     { path: 'transaction', component: TransactionComponent },
     { path: 'transaction/add-input-transaction', component: AddInputTransactionComponent },
     { path: 'transaction/add-output-transaction', component: AddOutputTransactionComponent },
     { path: 'transaction/show-my-transaction', component: ShowMyTransactionsComponent },
     { path: 'transaction/show-transaction', component: ShowTransactionsComponent },
-    { path: 'transaction/authorize-transaction', component: AuthorizeTransactionComponent },        
+    { path: 'transaction/authorize-transaction', component: AuthorizeTransactionComponent },
     { path: 'configuration', component: ConfigurationComponent },
     { path: 'configuration/add-user', component: AddUserComponent },
     { path: 'configuration/edit-user', component: EditUserComponent }
-]
-    
-    
+];

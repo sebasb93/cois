@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'configuration-component',
-  templateUrl: './configuration.component.html'  
+  selector: 'app-configuration-component',
+  templateUrl: './configuration.component.html'
 })
 
 export class ConfigurationComponent {
-  
+
 }

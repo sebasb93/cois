@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-//Main components
+// Main components
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { HomeComponent } from './components/home/home.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
@@ -13,7 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { appRoutes } from './app.routing';
 
-//ChildComponents
+// ChildComponents
 import { AddUserComponent } from './components/configuration/add-user/add-user.component';
 import { EditUserComponent } from './components/configuration/edit-user/edit-user.component';
 import { AddItemComponent } from './components/inventory/add-item/add-item.component';
@@ -50,6 +50,7 @@ import { AppComponent } from './app.component';
     NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
