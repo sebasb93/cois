@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'inventary-show-items-component',
+  selector: 'inventory-show-items-component',
   templateUrl: './show-items.component.html'  
 })
 

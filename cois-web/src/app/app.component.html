@@ -16,12 +16,12 @@
         <a class="nav-link" [routerLink]="['/login']">Login</a>
       </li>           
       <li ngbDropdown  class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a class="nav-link dropdown-toggle pointer" id="dropdown-inventary" aria-haspopup="true"
+        <a class="nav-link dropdown-toggle pointer" id="dropdown-inventory" aria-haspopup="true"
           aria-expanded="false" ngbDropdownToggle>Inventario</a>
         <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="dropdown-items">
-          <a class="dropdown-item" [routerLink]="['/inventary/show-item']">Items</a>
-          <a class="dropdown-item" [routerLink]="['/inventary/add-item']">Agregar Item</a>
-          <a class="dropdown-item" [routerLink]="['/inventary/edit-item']">Editar Item</a>
+          <a class="dropdown-item" [routerLink]="['/inventory/show-item']">Items</a>
+          <a class="dropdown-item" [routerLink]="['/inventory/add-item']">Agregar Item</a>
+          <a class="dropdown-item" [routerLink]="['/inventory/edit-item']">Editar Item</a>
         </div>
       </li>
       <li ngbDropdown  class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
