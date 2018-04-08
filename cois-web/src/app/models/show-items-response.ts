@@ -1,3 +1,5 @@
-export class ShowItemsResponse {
+import { Item } from './item';
 
+export class ShowItemsResponse {
+    items: Item[];
 }
