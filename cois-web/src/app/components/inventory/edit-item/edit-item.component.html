@@ -1,1 +1,34 @@
-<p>inventory - EditItem component works</p>
+<ng-container *ngIf="isVisible">
+
+    <div class="form-container">
+        <br>
+        <h2>Editar Item</h2>
+        <br>
+
+        <div class="col-sm-12">
+            <form [formGroup]="editItemForm">                
+                <div class="form-group">
+                    <label for="nameInput">Nombre:</label>
+                    <input type="text" class="form-control" id="nameInput" formControlName="name">
+                    <div class="alert alert-danger" role="alert" *ngIf="editItemForm.get('name').invalid && (editItemForm.get('name').dirty || editItemForm.get('name').touched)">
+                        *Campo requerido!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descriptionInput">Descripcion:</label>
+                    <input type="text" class="form-control" id="descriptionInput" formControlName="description">
+                    <div class="alert alert-danger" role="alert" *ngIf="editItemForm.get('description').invalid && (editItemForm.get('description').dirty || editItemForm.get('description').touched)">
+                        *Campo requerido!
+                    </div>
+                </div>                
+            </form>
+
+            <div align="right">
+                <button class="btn btn-primary">Editar</button>
+            </div>
+        </div>
+
+
+    </div>
+
+</ng-container>

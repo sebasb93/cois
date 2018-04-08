@@ -1,1 +1,54 @@
-<P>Inventory Works</P>
+<ng-container *ngIf="isVisible">
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                <h2>Items</h2>
+            </div>
+            <div class="col-sm-3" align="right">
+                <button type="button" class="btn btn-success" (click)="onAdd()">Agregar Item</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="list-group">
+                    <li class="list-group-item" [ngClass]="{'active': selectedItem && item.id === selectedItem.id}" *ngFor="let item of itemList"
+                        (click)="setItem(item)">
+                        <span class="h5">{{item.code}}</span> -
+                        <span>{{item.name}}</span>
+                    </li>
+                </ul>
+
+                <br>
+
+                <div align="right">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-secondary" (click)="lastRange()">Anterior</button>
+                        <button type="button" class="btn btn-secondary" (click)="nextRange()">Siguiente</button>
+                    </div>
+                </div>
+
+                <br>
+            </div>
+
+            <div class="col-sm-6">
+                <ng-container *ngIf="showItem">
+                    <app-inventory-show-items-component [selectedItem]="selectedItem"></app-inventory-show-items-component>
+                    <div align="right">
+                        <button type="button" class="btn btn-primary" (click)="onEdit()">Editar</button>
+                    </div>                    
+                </ng-container>
+
+                <ng-container *ngIf="showAdd">
+                    <app-inventory-add-item-component></app-inventory-add-item-component>
+                </ng-container>
+
+                <ng-container *ngIf="showEdit">
+                    <app-inventory-edit-item-component [selectedItem]="selectedItem"></app-inventory-edit-item-component>
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</ng-container>
