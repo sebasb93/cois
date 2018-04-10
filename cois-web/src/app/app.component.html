@@ -17,10 +17,21 @@
       </li>       
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link" [routerLink]="['/inventory']">Inventario</a>
+      </li>
+      <li ngbDropdown  class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link dropdown-toggle pointer" id="dropdown-transaction" aria-haspopup="true"
+          aria-expanded="false" ngbDropdownToggle>Movimientos</a>
+        <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="dropdown-transaction">
+          <a class="dropdown-item" [routerLink]="['/transaction/show-my-transaction']">Mis movimientos</a>
+          <a class="dropdown-item" [routerLink]="['/transaction/show-transaction']">Movimientos</a>
+          <a class="dropdown-item" [routerLink]="['/transaction/add-input-transaction']">Nuevo ingreso</a>
+          <a class="dropdown-item" [routerLink]="['/transaction/add-output-transaction']">Nueva salida</a>
+          <a class="dropdown-item" [routerLink]="['/transaction/authorize-transaction']">Autorizar</a>
+        </div>
       </li>   
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <!-- <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link" [routerLink]="['/transaction']">Movimientos</a>
-      </li>   
+      </li>    -->
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link" [routerLink]="['/configuration']">Configuracion</a>
       </li>       
