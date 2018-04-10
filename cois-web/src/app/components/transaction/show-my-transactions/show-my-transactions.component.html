@@ -1,1 +1,84 @@
-<p>transaction - ShowMyTransactions component works</p>
+<ng-container *ngIf="isVisible">
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                <h2>Mis Movimientos</h2>
+            </div>            
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="list-group">
+                    <li class="list-group-item" [ngClass]="{'active': selectedTransaction && transaction.id === selectedTransaction.id}" *ngFor="let transaction of transactionList"
+                        (click)="setTransaction(transaction)">
+                        <span class="h5">{{transaction.id}}</span> -
+                        <span>{{transaction.date | date:'short'}}</span> -
+                        <span>{{transaction.userId}}</span> - 
+                        <span>{{transaction.authorizationType}}</span> 
+                    </li>
+                </ul>
+
+                <br>
+
+                <div align="right">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-secondary" (click)="lastRange()">Anterior</button>
+                        <button type="button" class="btn btn-secondary" (click)="nextRange()">Siguiente</button>
+                    </div>
+                </div>
+
+                <br>
+            </div>
+
+            <div class="col-sm-6">
+                <ng-container *ngIf="showItem">
+                    <div class="container">
+                        <br>
+                        <h2>Detalles</h2>
+                        <br>
+                        <div class="column-sm-12">
+                            <div class="form-group">
+                                <label for="codeDetails">Id. de Movimiento</label>
+                                <input type="text" class="form-control" id="codeDetails" value="{{selectedTransaction.id}}" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="nameDetails">Id. del solicitante</label>
+                                <input type="text" class="form-control" id="nameDetails" value="{{selectedTransaction.userId}}" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nameDetails">Fecha</label>
+                                <input type="text" class="form-control" id="nameDetails" value="{{selectedTransaction.date}}" readonly>
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="descriptionDetails">Tipo de movimiento</label>
+                                <input type="text" class="form-control" id="descriptionDetails" value="{{selectedTransaction.type}}" readonly>
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="unitDetails">Id. de responsable</label>
+                                <input type="text" class="form-control" id="unitDetails" value="{{selectedTransaction.authorizationUserId}}" readonly>
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="quantityDetails">Tipo de autorizacion</label>
+                                <input type="text" class="form-control" id="quantityDetails" value="{{selectedTransaction.authorizationType}}" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quantityDetails">Comentarios</label>
+                                <ng-container *ngFor="let comment of selectedTransaction.comments">
+                                        <input type="text" class="form-control" id="quantityDetails" value="{{comment}}" readonly>
+                                </ng-container>
+                                
+                            </div>
+                        </div>     
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-container>
