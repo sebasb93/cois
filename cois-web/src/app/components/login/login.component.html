@@ -1,1 +1,16 @@
-<P>Login Works</P>
+<form [formGroup]="loginForm">                
+    <div class="form-group">
+        <label for="nameInput">Usuario:</label>
+        <input type="text" class="form-control" id="nameInput" formControlName="user">
+        <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('user').invalid && (loginForm.get('user').dirty || loginForm.get('user').touched)">
+            *Campo requerido!
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="descriptionInput">Contraseña:</label>
+        <input type="password" class="form-control" id="descriptionInput" formControlName="pass">
+        <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('pass').invalid && (loginForm.get('pass').dirty || loginForm.get('pass').touched)">
+            *Campo requerido!
+        </div>
+    </div>                
+</form>
