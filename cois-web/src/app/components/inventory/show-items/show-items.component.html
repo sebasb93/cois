@@ -1,0 +1,33 @@
+<ng-container *ngIf="isVisible">
+    <div class="container">
+        <br>
+        <h2>Detalles</h2>
+        <br>
+        <div class="column-sm-12">
+            <div class="form-group">
+                <label for="codeDetails">Codigo</label>
+                <input type="text" class="form-control" id="codeDetails" value="{{selectedItem.code}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="nameDetails">Nombre</label>
+                <input type="text" class="form-control" id="nameDetails" value="{{selectedItem.name}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="descriptionDetails">Descripcion</label>
+                <input type="text" class="form-control" id="descriptionDetails" value="{{selectedItem.description}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="unitDetails">Unidad</label>
+                <input type="text" class="form-control" id="unitDetails" value="{{selectedItem.unit}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="quantityDetails">Cantidad</label>
+                <input type="text" class="form-control" id="quantityDetails" value="{{selectedItem.quantity}}" readonly>
+            </div>
+        </div>     
+    </div>
+</ng-container>

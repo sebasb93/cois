@@ -6,8 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './app.component.html',
   providers: [NgbModule],
   styleUrls: [
-    './app.component.css',
-    '../assets/css/bootstrap.min.css'
+    './app.component.css'
   ]
 })
 export class AppComponent {
