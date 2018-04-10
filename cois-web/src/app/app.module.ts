@@ -26,6 +26,7 @@ import { ShowTransactionsComponent } from './components/transaction/show-transac
 import { AuthorizeTransactionComponent } from './components/transaction/authorize-transaction/authorize-transaction.component';
 
 import { AppComponent } from './app.component';
+import { ApiService } from './services/api-service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
