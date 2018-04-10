@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {HttpClientModule} from '@angular/common/http';
 
 // Main components
 import { ConfigurationComponent } from './components/configuration/configuration.component';
@@ -54,6 +55,7 @@ import { DataService} from './services/data-service';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ApiService, DataService],
