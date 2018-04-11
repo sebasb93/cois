@@ -1,1 +1,54 @@
-<P>Configuration Works</P>
+<ng-container *ngIf="isVisible">
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                <h2>Usuarios</h2>
+            </div>
+            <div class="col-sm-3" align="right">
+                <button type="button" class="btn btn-success" (click)="onAdd()">Agregar Usuario</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="list-group">
+                    <li class="list-group-user" [ngClass]="{'active': selectedUser && user.id === selectedUser.id}" *ngFor="let user of userList"
+                        (click)="setUser(user)">
+                        <span class="h5">{{user.code}}</span> -
+                        <span>{{user.name}}</span>
+                    </li>
+                </ul>
+
+                <br>
+
+                <!-- <div align="right">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-secondary" (click)="lastRange()">Anterior</button>
+                        <button type="button" class="btn btn-secondary" (click)="nextRange()">Siguiente</button>
+                    </div>
+                </div> -->
+
+                <br>
+            </div>
+
+            <div class="col-sm-6">
+                <ng-container *ngIf="showUser">
+                    <app-configuration-show-user-component [selectedUser]="selectedUser"></app-configuration-show-user-component>
+                    <div align="right">
+                        <button type="button" class="btn btn-primary" (click)="onEdit()">Editar</button>
+                    </div>                    
+                </ng-container>
+
+                <ng-container *ngIf="showAdd">
+                    <app-configuration-add-user-component></app-configuration-add-user-component>
+                </ng-container>
+
+                <ng-container *ngIf="showEdit">
+                    <app-configuration-edit-user-component [selectedUser]="selectedUser"></app-configuration-edit-user-component>
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</ng-container>

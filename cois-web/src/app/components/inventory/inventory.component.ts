@@ -44,8 +44,8 @@ export class InventoryComponent implements OnInit {
     this.itemList = [];
 
     this.apiService.GetAllItems().subscribe(
-      res=>{
-        if(res){
+      res => {
+        if (res) {
           this.itemList = res.listItems;
         }
       }

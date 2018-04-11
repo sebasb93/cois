@@ -1,0 +1,29 @@
+<ng-container *ngIf="isVisible">
+    <div class="container">
+        <br>
+        <h2>Detalles</h2>
+        <br>
+        <div class="column-sm-12">
+            <div class="form-group">
+                <label for="idDetails">Id</label>
+                <input type="text" class="form-control" id="idDetails" value="{{selectedUser.id}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="nameDetails">Nombre</label>
+                <input type="text" class="form-control" id="nameDetails" value="{{selectedUser.name}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="nickDetails">Nickname</label>
+                <input type="text" class="form-control" id="nickDetails" value="{{selectedUser.nickname}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="biometricDetails">Biometrico</label>
+                <input type="text" class="form-control" id="biometricDetails" value="{{selectedUser.requiredBiometric}}" readonly>
+            </div>
+            
+        </div>     
+    </div>
+</ng-container>

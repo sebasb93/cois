@@ -17,6 +17,7 @@ import { appRoutes } from './app.routing';
 // ChildComponents
 import { AddUserComponent } from './components/configuration/add-user/add-user.component';
 import { EditUserComponent } from './components/configuration/edit-user/edit-user.component';
+import { ShowUserComponent } from './components/configuration/show-user/show-user.component';
 import { AddItemComponent } from './components/inventory/add-item/add-item.component';
 import { EditItemComponent } from './components/inventory/edit-item/edit-item.component';
 import { ShowItemComponent } from './components/inventory/show-items/show-items.component';
@@ -40,6 +41,7 @@ import { DataService} from './services/data-service';
     TransactionComponent,
     AddUserComponent,
     EditUserComponent,
+    ShowUserComponent,
     AddItemComponent,
     EditItemComponent,
     ShowItemComponent,

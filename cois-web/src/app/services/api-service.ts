@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Item } from '../models/item';
 import { AddItemRequest } from '../models/add-item-request';
 import { ItemResponse } from '../models/edit-item-response';
+import { UserResponse } from '../models/user-response';
+import { AddUserRequest } from '../models/add-user-request';
 
 @Injectable()
 export class ApiService {
@@ -24,6 +26,14 @@ export class ApiService {
 
     addItem(value: AddItemRequest): Observable<any> {
         return this.http.post(this.url + 'items', value);
+    }
+
+    GetAllUsers(): Observable<UserResponse> {
+        return this.http.get<UserResponse>(this.url + 'endpointHere');
+    }
+
+    addUser(value: AddUserRequest): Observable<any> {
+        return this.http.post(this.url + 'endpointHere', value);
     }
 
 
