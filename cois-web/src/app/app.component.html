@@ -1,15 +1,17 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <a class="navbar-brand" [routerLink]="['']">{{title}}</a>
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#fc7323">
+  <a class="navbar-brand" [routerLink]="['']">
+    <img src="../assets/img/logo-blanco.png" width="30" height="30" alt="">
+    &nbsp;{{title}}
+  </a>
   <button class="navbar-toggler" type="button" aria-controls="mainNavBar"
           [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="navbar-collapse collapse justify-content-between" id="mainNavBar" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a class="nav-link icon-nav-inline" [routerLink]="['/home']">
-          <i class="material-icons icon-nav-left-space">home</i>Inicio
+        <a class="nav-link" [routerLink]="['/home']">
+          Inicio
           <span class="sr-only">(current)</span>
         </a>
       </li>
@@ -21,7 +23,7 @@
       </li>
       <li ngbDropdown class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link dropdown-toggle pointer icon-nav-inline dropdown-toggle-icon" id="dropdown-transaction" aria-haspopup="true"
-           aria-expanded="false" ngbDropdownToggle>
+           aria-expanded="false" ngbDropdownToggle>Movimientos</a>
           <i class="material-icons icon-nav-left-space">cached</i>Movimientos
         </a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown-transaction">
@@ -72,7 +74,7 @@
         </div>
       </li> -->
     </ul>
-    <button type="button" class="btn btn-outline-success" [routerLink]="['/login']" routerLinkActive="active">{{loginLabel}}</button>
+    <button type="button" class="btn btn-success" [routerLink]="['/login']" routerLinkActive="active">{{loginLabel}}</button>
     <button type="button" class="btn btn-outline-success" *ngIf="showLogout" (click)="setLogout()">Logout</button>
   </div>
 </nav>
