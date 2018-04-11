@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AddItemRequest } from '../../../models/add-item-request';
+import { ApiService } from '../../../services/api-service';
 
 @Component({
   selector: 'app-inventory-add-item-component',
@@ -15,14 +16,14 @@ export class AddItemComponent implements OnInit {
 
   isVisible: boolean;
 
-  constructor() {
+  constructor(private apiService: ApiService ) {
     this.isVisible = false;
     this.addItemRequest = {
-      Code: '',
-      Description: '',
-      Name: '',
-      Unit: '',
-      Quantity: 0,
+      code: '',
+      description: '',
+      name: '',
+      unit: '',
+      quantity: 0,
     };
 
     this.addItemForm = new FormGroup({});
@@ -36,13 +37,26 @@ export class AddItemComponent implements OnInit {
 
   loadForm() {
     this.addItemForm = new FormGroup({
-      code: new FormControl(this.addItemRequest.Code, [Validators.required]),
-      name: new FormControl(this.addItemRequest.Name, [Validators.required]),
-      description: new FormControl(this.addItemRequest.Description, [Validators.required]),
-      unit: new FormControl(this.addItemRequest.Unit, [Validators.required]),
-      quantity: new FormControl(this.addItemRequest.Quantity, [Validators.required])
+      code: new FormControl(this.addItemRequest.code, [Validators.required]),
+      name: new FormControl(this.addItemRequest.name, [Validators.required]),
+      description: new FormControl(this.addItemRequest.description, [Validators.required]),
+      unit: new FormControl(this.addItemRequest.unit, [Validators.required]),
+      quantity: new FormControl(this.addItemRequest.quantity, [Validators.required])
     });
 
+
+  }
+
+  addItem(){
+  if(this.addItemForm.valid){
+    this.apiService.addItem(this.addItemRequest).subscribe(
+      res => {
+        if(res) {
+          console.log(res);
+        }
+      }
+    );
+  }
 
   }
 
