@@ -1,16 +1,27 @@
-<form [formGroup]="loginForm">                
-    <div class="form-group">
+<br />
+<form [formGroup]="loginForm">  
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <div style="text-align:center">
+          <img src="../../../assets/img/user-login-green.png" alt="user" class="img-fluid" style="max-width:200px">
+      </div>
+      <div class="form-group col-md-12">
         <label for="nameInput">Usuario:</label>
         <input type="text" class="form-control" id="nameInput" formControlName="user">
         <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('user').invalid && (loginForm.get('user').dirty || loginForm.get('user').touched)">
-            *Campo requerido!
+          *Campo requerido!
         </div>
-    </div>
-    <div class="form-group">
+      </div>
+      <div class="form-group col-md-12">
         <label for="descriptionInput">Contraseña:</label>
         <input type="password" class="form-control" id="descriptionInput" formControlName="pass">
         <div class="alert alert-danger" role="alert" *ngIf="loginForm.get('pass').invalid && (loginForm.get('pass').dirty || loginForm.get('pass').touched)">
-            *Campo requerido!
+          *Campo requerido!
         </div>
-    </div>                
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success" (click)="onLogin()">Login</button>
+      </div>
+    </div>
+  </div>
 </form>

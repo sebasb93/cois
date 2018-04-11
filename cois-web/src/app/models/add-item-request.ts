@@ -1,7 +1,7 @@
 export class AddItemRequest {
-    Code: string;
-    Name: string;
-    Description: string;
-    Unit: string;
-    Quantity: number;
+    code: string;
+    name: string;
+    description: string;
+    unit: string;
+    quantity: number;
 }

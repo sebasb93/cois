@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Item } from '../../models/item';
+import { ApiService } from '../../services/api-service';
 
 @Component({
   selector: 'app-inventory-component',
@@ -21,7 +22,7 @@ export class InventoryComponent implements OnInit {
   showAdd: boolean;
   showEdit: boolean;
 
-  constructor() {
+  constructor(private apiService: ApiService) {
     this.isVisible = false;
     this.showItem = false;
     this.itemList = [];
@@ -40,21 +41,31 @@ export class InventoryComponent implements OnInit {
   }
 
   LoadItems() {
+    this.itemList = [];
+
+    this.apiService.GetAllItems().subscribe(
+      res => {
+        if (res) {
+          this.itemList = res.listItems;
+        }
+      }
+
+    );
 
     // Request to api with rangeNumber
 
-    this.itemList = [];
+    // this.itemList = [];
 
-    for (let gen = 0; gen <= 15; gen++ ) {
-      this.itemList.push({
-        id: gen.toString() + this.rangeNumber,
-        code: 'code' + gen,
-        name: 'name' + ' ' + this.rangeNumber + ' ' + gen,
-        description: 'descripction data' + gen,
-        unit: 'unit' + gen,
-        quantity: 5 + gen
-      });
-    }
+    // for (let gen = 0; gen <= 15; gen++ ) {
+    //   this.itemList.push({
+    //     id: gen.toString() + this.rangeNumber,
+    //     code: 'code' + gen,
+    //     name: 'name' + ' ' + this.rangeNumber + ' ' + gen,
+    //     description: 'descripction data' + gen,
+    //     unit: 'unit' + gen,
+    //     quantity: 5 + gen
+    //   });
+    // }
 
   }
 

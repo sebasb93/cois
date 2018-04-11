@@ -3,20 +3,20 @@ import { FormsModule } from '@angular/forms';
 import { Item } from '../../../models/item';
 
 @Component({
-  selector: 'app-inventory-show-items-component',
-  templateUrl: './show-items.component.html'
+  selector: 'app-configuration-show-user-component',
+  templateUrl: './show-user.component.html'
 })
 
-export class ShowItemComponent implements OnInit {
+export class ShowUserComponent implements OnInit {
 
   isVisible: boolean;
 
-  itemList: Item[];
+  userList: Item[];
   rangeNumber: number;
   ranges: number;
 
   @Input()
-  selectedItem: Item;
+  selectedUser: Item;
 
   constructor() {
     this.isVisible = false;

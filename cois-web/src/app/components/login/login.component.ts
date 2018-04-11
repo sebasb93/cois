@@ -35,4 +35,10 @@ export class LoginComponent implements OnInit {
       pass: new FormControl(this.loginRequest.pass, [Validators.required])
     });
   }
+
+  onLogin() {
+    if (this.loginForm.valid) {
+      // peticion Login
+    }
+  }
 }

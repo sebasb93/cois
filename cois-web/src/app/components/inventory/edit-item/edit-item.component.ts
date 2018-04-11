@@ -40,7 +40,9 @@ export class EditItemComponent implements OnInit {
       name: new FormControl(this.editItemRequest.Name, [Validators.required]),
       description: new FormControl(this.editItemRequest.Description, [Validators.required])
     });
+  }
 
+  onEdit() {
 
   }
 }

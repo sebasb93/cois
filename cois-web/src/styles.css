@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.icon-nav-inline {
+  display: inline-flex;
+}
+
+.icon-nav-left-space {
+  padding-right: 5px;
+}
+
+.dropdown-toggle-icon::after {
+  margin-top: 12px;
+}

@@ -1,1 +1,49 @@
-<p>configuration - AddUser component works</p>
+<ng-container *ngIf="isVisible">
+
+    <div class="form-container">
+        <br>
+        <h2>Agregar Usuario</h2>
+        <br>
+
+        <div class="col-sm-12">
+            <form [formGroup]="addUserForm">
+                <div class="form-group">
+                    <label for="codeInput">Nombre:</label>
+                    <input type="text" class="form-control" id="codeInput" formControlName="name" [(ngModel)]="addUserRequest.name">
+                    <div class="alert alert-danger" role="alert" *ngIf="addUserForm.get('name').invalid && (addUserForm.get('name').dirty || addUserForm.get('name').touched)">
+                        *Campo requerido!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nameInput">Nickname::</label>
+                    <input type="text" class="form-control" id="nameInput" formControlName="nickname" [(ngModel)]="addUserRequest.nickname">
+                    <div class="alert alert-danger" role="alert" *ngIf="addUserForm.get('nickname').invalid && (addUserForm.get('nickname').dirty || addUserForm.get('nickname').touched)">
+                        *Campo requerido!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descriptionInput">Contraseña:</label>
+                    <input type="password" class="form-control" id="descriptionInput" formControlName="password" [(ngModel)]="addUserRequest.password">
+                    <div class="alert alert-danger" role="alert" *ngIf="addUserForm.get('password').invalid && (addUserForm.get('password').dirty || addUserForm.get('password').touched)">
+                        *Campo requerido!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="unitInput">Repetir contraseña:</label>
+                    <input type="password" class="form-control" id="unitInput" formControlName="passwordRepeat"  [(ngModel)]="addUserRequest.passwordRepeat">
+                    <div class="alert alert-danger" role="alert" *ngIf="addUserForm.get('passwordRepeat').invalid && (addUserForm.get('passwordRepeat').dirty || addUserForm.get('passwordRepeat').touched)">
+                        *Campo requerido!
+                    </div>
+                </div>                
+            </form>
+
+            <div align="right">
+                <button class="btn btn-primary" (click)="addUser()">Agregar</button>
+            </div>
+        </div>
+        
+
+    </div>
+
+
+</ng-container>
