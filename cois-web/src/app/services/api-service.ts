@@ -21,9 +21,9 @@ export class ApiService {
     GetAllItems(): Observable<ItemResponse> {
         return this.http.get<ItemResponse>(this.url + 'items');
     }
-    
-    addItem(value:AddItemRequest): Observable<any> {
-        return this.http.post(this.url + 'items',value);
+
+    addItem(value: AddItemRequest): Observable<any> {
+        return this.http.post(this.url + 'items', value);
     }
 
 

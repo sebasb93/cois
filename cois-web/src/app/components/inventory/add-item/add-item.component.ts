@@ -47,11 +47,11 @@ export class AddItemComponent implements OnInit {
 
   }
 
-  addItem(){
-  if(this.addItemForm.valid){
+  addItem() {
+  if (this.addItemForm.valid) {
     this.apiService.addItem(this.addItemRequest).subscribe(
       res => {
-        if(res) {
+        if (res) {
           console.log(res);
         }
       }

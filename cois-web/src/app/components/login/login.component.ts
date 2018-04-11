@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     if (this.loginForm.valid) {
-      //peticion Login
+      // peticion Login
     }
   }
 }
