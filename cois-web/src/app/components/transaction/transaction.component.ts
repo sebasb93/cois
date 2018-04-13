@@ -41,13 +41,14 @@ export class TransactionComponent implements OnInit {
     for (let gen = 0; gen <= 15; gen++ ) {
       this.transactionList.push({
       id: gen.toString(),
-      userId: 'usuarioA',
-      authorizationUserId: 'admin1',
+      user: '',
+      authorizationUserId: '',
       authorizated: true,
-      comments: ['algunos'],
-      type: 'input',
-      authorizationType: 'manual',
-      date: new Date()
+      comments: '',
+      type: '',
+      authorizationType: '',
+      date: new Date(),
+      transactionItems:null
       });
     }
 

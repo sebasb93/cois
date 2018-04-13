@@ -49,7 +49,6 @@ export class InventoryComponent implements OnInit {
           this.itemList = res.listItems;
         }
       }
-
     );
 
     // Request to api with rangeNumber

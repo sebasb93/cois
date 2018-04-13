@@ -15,13 +15,14 @@ export class AddUserComponent implements OnInit {
 
   isVisible: boolean;
 
-  constructor(private apiService: ApiService ) {
+  constructor(private apiService: ApiService) {
     this.isVisible = false;
     this.addUserRequest = {
       name: '',
       nickname: '',
       password: '',
-      passwordRepeat: ''
+      passwordRepeat: '',
+      idFingerprint: ''
     };
 
     this.addUserForm = new FormGroup({});
@@ -46,10 +47,20 @@ export class AddUserComponent implements OnInit {
 
   addUser() {
     if (this.addUserForm.valid) {
-      this.apiService.addUser(this.addUserRequest).subscribe(
+
+      this.apiService.addFingerp().subscribe(
         res => {
           if (res) {
-            console.log(res);
+            if (res.Code === 0) {
+              this.addUserRequest.idFingerprint=res.Descripcion;
+              this.apiService.addUser(this.addUserRequest).subscribe(
+                res => {
+                  if (res) {
+                    console.log(res);
+                  }
+                }
+              );
+            }
           }
         }
       );

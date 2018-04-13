@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from '../../../models/transaction';
+import { CustomItemTransaction } from '../../../models/item-transaction';
+import { ApiResponse } from '../../../models/api-response';
+import { ApiService } from '../../../services/api-service';
 
 @Component({
   selector: 'app-transaction-show-transactions-component',
@@ -17,7 +20,7 @@ export class ShowTransactionsComponent implements OnInit {
 
   selectedTransaction: Transaction;
 
-  constructor() {
+  constructor(private apiService: ApiService) {
     this.isVisible = false;
     this.showItem = false;
     this.transactionList = [];
@@ -39,20 +42,28 @@ export class ShowTransactionsComponent implements OnInit {
 
     // Request to api with rangeNumber
 
-    this.transactionList = [];
 
-    for (let gen = 0; gen <= 15; gen++ ) {
+    this.transactionList = [];
+// this.apiService.GetAllTransactions().subscribe(
+//   res=>{
+//     // this.transactionList = res.listItems;
+//   }
+// );
+    
+    for (let gen = 0; gen <= 15; gen++) {
       this.transactionList.push({
-      id: gen.toString() + this.rangeNumber,
-      userId: 'usuarioA',
-      authorizationUserId: 'admin1',
-      authorizated: true,
-      comments: ['algunosA', 'algunosB'],
-      type: 'input',
-      authorizationType: 'manual',
-      date: new Date()
+        id: gen.toString() + this.rangeNumber,
+        user: '',
+        authorizationUserId: '',
+        authorizated: true,
+        comments: '',
+        type: 'input',
+        authorizationType: '',
+        date: new Date(),
+        transactionItems: null
       });
     }
+     
 
   }
 

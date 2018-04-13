@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data-service';
 import { LoginRequest } from '../../models/login-request';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ApiService } from '../../services/api-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
@@ -15,12 +17,12 @@ export class LoginComponent implements OnInit {
 
   loginRequest: LoginRequest;
 
-  constructor(private dataService: DataService) {
+  constructor(private apiService: ApiService, private dataService: DataService, private router: Router) {
     this.isVisible = false;
     this.loginForm = new FormGroup({});
     this.loginRequest = {
-      user: '',
-      pass: ''
+      nickname: '',
+      password: ''      
     };
   }
 
@@ -31,14 +33,33 @@ export class LoginComponent implements OnInit {
 
   loadForm() {
     this.loginForm = new FormGroup({
-      user: new FormControl(this.loginRequest.user, [Validators.required]),
-      pass: new FormControl(this.loginRequest.pass, [Validators.required])
+      user: new FormControl(this.loginRequest.nickname, [Validators.required]),
+      pass: new FormControl(this.loginRequest.password, [Validators.required])
     });
   }
 
   onLogin() {
     if (this.loginForm.valid) {
-      // peticion Login
+      this.apiService.Login(this.loginRequest).subscribe(
+        res => {
+          if(res.Code === 0) {
+            this.apiService.VerifyFinger(res.Descripcion).subscribe( 
+              res => {
+                if(res.Code === 0) {
+                  // Res ok
+                  this.dataService.setSessionKey(res.Descripcion);
+                  this.router.navigate(['']);
+                  console.log("verify ok");
+                }else{
+                  console.log(res.Descripcion);
+                }
+              }
+            );
+          }else{
+            console.log(res.Descripcion);
+          }
+        }
+      );
     }
   }
 }

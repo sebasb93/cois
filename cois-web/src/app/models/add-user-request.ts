@@ -3,4 +3,5 @@ export class AddUserRequest {
     nickname: string;
     password: string;
     passwordRepeat: string;
+    idFingerprint:string;
 }

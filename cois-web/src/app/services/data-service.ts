@@ -8,22 +8,17 @@ export class DataService {
     private nameKey: string;
 
     constructor() {
-        this.idKey = 'idKey';
-        this.nameKey = 'nameKey';
+        this.idKey = 'idKey';        
     }
 
-    setSessionKey(value: SessionUser) {
-        localStorage.setItem(this.idKey, value.userId);
-        localStorage.setItem(this.nameKey, value.name);
+    setSessionKey(value: string) {
+        localStorage.setItem(this.idKey, value);
+        
     }
 
     getSessionKey() {
-        const res: SessionUser = {
-            userId: localStorage.getItem(this.idKey) ? localStorage.getItem(this.idKey) : '',
-            name: localStorage.getItem(this.nameKey) ? localStorage.getItem(this.nameKey) : '',
-        };
-
-        return res;
+        let session = localStorage.getItem(this.idKey);
+        return session ? session : '';        
     }
 
 

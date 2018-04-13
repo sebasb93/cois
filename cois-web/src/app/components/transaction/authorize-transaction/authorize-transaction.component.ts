@@ -44,13 +44,14 @@ export class AuthorizeTransactionComponent implements OnInit {
     for (let gen = 0; gen <= 15; gen++ ) {
       this.transactionList.push({
       id: gen.toString() + this.rangeNumber,
-      userId: 'usuarioA',
+      user: 'usuarioA',
       authorizationUserId: 'admin1',
       authorizated: false,
-      comments: ['algunosA', 'algunosB'],
+      comments: '',
       type: 'input',
       authorizationType: 'manual',
-      date: new Date()
+      date: new Date(),
+      transactionItems:null
       });
     }
 

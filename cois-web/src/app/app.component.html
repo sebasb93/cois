@@ -15,7 +15,7 @@
           <span class="sr-only">(current)</span>
         </a>
       </li>
-
+      <ng-container *ngIf="!validateLogin()">
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link icon-nav-inline" [routerLink]="['/inventory']">
           <i class="material-icons icon-nav-left-space">view_module</i>Inventario
@@ -42,6 +42,7 @@
           <i class="material-icons icon-nav-left-space">settings</i>Configuracion
         </a>
       </li>
+    </ng-container>
       <!-- <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link" [routerLink]="['/login']">Login</a>
       </li>           -->
@@ -74,8 +75,12 @@
         </div>
       </li> -->
     </ul>
-    <button type="button" class="btn btn-success" [routerLink]="['/login']" routerLinkActive="active">{{loginLabel}}</button>
-    <button type="button" class="btn btn-outline-success" *ngIf="showLogout" (click)="setLogout()">Logout</button>
+    <ng-container *ngIf="validateLogin()">
+      <button type="button" class="btn btn-success" [routerLink]="['/login']" routerLinkActive="active">{{loginLabel}}</button>
+    </ng-container>
+    <ng-container *ngIf="!validateLogin()">
+      <button type="button" class="btn btn-success" (click)="Logout()">Logout</button>
+    </ng-container>
   </div>
 </nav>
 <div class="container">

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule} from '@angular/router';
+import { RouterModule, Router} from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
@@ -57,7 +57,7 @@ import { DataService} from './services/data-service';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    HttpClientModule,
+    HttpClientModule,    
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ApiService, DataService],

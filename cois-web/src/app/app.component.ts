@@ -14,48 +14,26 @@ import { SessionUser } from './models/session-user';
 export class AppComponent implements OnInit {
   title = 'COIS-WEB';
 
-  loginLabel: string;
-  showLogout: boolean;
+  loginLabel: string;  
   sessionData: SessionUser;
 
   constructor(private dataService: DataService) {
-    this.loginLabel = 'Login';
-    this.showLogout = false;
+    this.loginLabel = 'Login';    
   }
 
   ngOnInit () {
 
-    this.loadSession();
-  }
-
-  loadSession() {
-    this.validateLogin();
-    this.setLoginButton();
-  }
-
-  setLoginButton() {
-    if (this.sessionData) {
-      this.loginLabel = this.sessionData.name;
-      this.showLogout = true;
-    }
-  }
-
-  setLogout() {
-    this.dataService.setSessionKey({name: '', userId: ''});
-    this.loadSession();
+    
   }
 
   validateLogin() {
-    if (this.dataService.getSessionKey().userId !== '') {
-      this.sessionData = {
-        userId: this.dataService.getSessionKey().userId,
-        name: this.dataService.getSessionKey().name
-      };
-    } else {
-      this.sessionData = undefined;
-    }
-
+    return this.dataService.getSessionKey() === '' ? true : false;
   }
+
+  Logout() {
+    this.dataService.setSessionKey('');
+  }
+
 
 
 }
